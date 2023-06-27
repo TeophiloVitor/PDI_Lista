@@ -584,13 +584,13 @@ Saídas:</p>
 Aplicação de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/borda_canny.png'></p>
 Aplicação do Pontilhismo:</p>
-<p align='center'><img src='./11 - pontcannya/pontilhada.png'></p>
+<p align='center'><img src='./11 - pontcanny/pontilhada.png'></p>
 Redultado da correção do pontilhismo pelas bordas de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/cannypoints.png'></p>
 
 # 🔭 Exercício 12
 
-Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p
+Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p>
 
 # Solução
 
@@ -604,7 +604,6 @@ import io
 nClusters = 8
 nRodadas = 1
 
-# URL da imagem da internet
 image_url = "https://img.freepik.com/fotos-premium/colecao-de-frutas-de-fundo-alimentar-macas-bagas-banana-quadrado-laranjas-frutas_770123-2578.jpg?w=2000"
 
 # Faz o download da imagem da internet
