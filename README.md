@@ -281,7 +281,7 @@ Imagem sem borda:</p>
 Imagem realce:</p>
 <p align='center'><img src='./5 - labelling/image_realce.png'></p>
 Imagem preenchida:</p>
-<p align='center'><img src='./5 - labelling/labelling.png'></p>
+<p align='center'><img src='./5 - labelling/labeling.png'></p>
 Comparativo final:</p>
 <p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'></p>
 Valores:</p>
@@ -483,7 +483,7 @@ if __name__ == "__main__":
     main()
 ```
 Saída em GIF:</p>
-<p align='center'><img src='./7 - laplgauss/exemplo7.gif'></p>
+<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'></p>
 
 ## 🔔 PARTE II
 
