@@ -585,7 +585,7 @@ Aplicação de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/borda_canny.png'></p>
 Aplicação do Pontilhismo:</p>
 <p align='center'><img src='./11 - pontcanny/pontilhada.png'></p>
-Redultado da correção do pontilhismo pelas bordas de Canny:</p>
+Resultado da correção do pontilhismo pelas bordas de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/cannypoints.png'></p>
 
 # 🔭 Exercício 12
