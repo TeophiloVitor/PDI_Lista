@@ -505,7 +505,7 @@ Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como refer
 
 # Solução
 
-Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algortimo de canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
+Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algoritmo de Canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
 ```python
 import cv2
 import numpy as np
