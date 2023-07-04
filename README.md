@@ -171,7 +171,7 @@ cv2.destroyAllWindows()
 ```
 Saídas:</p>
 <p align='center'><img src='./3 - senoide/senoideatt.png'></p>
-<p align='center'><img src='./3 - senoide/senoideatt.yml'></p>
+[[Link arquivo YML]]('./3 - senoide/senoideatt.yml')</p>
 
 # 🔭 Exercício 4
 
