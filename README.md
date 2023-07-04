@@ -127,6 +127,52 @@ Entrada:</p>
 Saída:</p>
 <p align='center'><img src='./2 - trocaregions/biel_6.png'></p>
 
+# 🔭 Exercício 3
+
+Utilizando o programa filestorage.cpp como base, crie um programa que gere uma imagem de dimensões 256x256 pixels contendo uma senóide de 4 períodos com amplitude de 127 desenhada na horizontal, como aquela apresentada na Figura 6 do material. Grave a imagem no formato PNG e no formato YML. Compare os arquivos gerados, extraindo uma linha de cada imagem gravada e comparando a diferença entre elas. Trace um gráfico da diferença calculada ao longo da linha correspondente extraída nas imagens. O que você observa?</p>
+
+# Solução
+
+Para resolver esse problema foram feitas algumas modificações no código original, como resultado disso e da diminuição do número de períodos usados, agora 4, vemos uma redução na amostragem e traços mais grossos na representação da senóide, fato esse também comprovado no arquivo YML, como mostrado no código a seguir:</p>
+```python
+import cv2
+import numpy as np
+import math
+
+SIDE = 256 # Dimensão da imagem (256x256 pixels)
+PERIODOS = 4 # Número de períodos da senoide
+
+# Criar uma matriz de zeros para a imagem
+image = np.zeros((SIDE, SIDE), dtype=np.float32)
+
+for i in range(SIDE):
+    for j in range(SIDE):
+        image[i, j] = 127 * math.sin(2 * math.pi * PERIODOS * j / SIDE) + 128
+
+# Salvar a imagem em formato YML
+ss_yml = f"senoide-{SIDE}.yml"
+fs = cv2.FileStorage(ss_yml, cv2.FILE_STORAGE_WRITE)
+fs.write("mat", image)
+fs.release()
+
+# Normalizar a imagem
+image_normalized = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
+
+image_normalized_uint8 = image_normalized.astype(np.uint8)
+
+# Salvar a imagem em formato PNG
+ss_png = f"senoide-{SIDE}.png"
+cv2.imwrite(ss_png, image_normalized_uint8)
+
+# Exibir a imagem
+cv2.imshow("Senoide", image_normalized_uint8)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+Saídas:</p>
+<p align='center'><img src='./3 - senoide/senoideatt.png'></p>
+<p align='center'><img src='./3 - senoide/senoideatt.yml'></p>
+
 # 🔭 Exercício 4
 
 Usando o programa esteg-encode.cpp como referência para esteganografia, escreva um programa que recupere a imagem codificada de uma imagem resultante de esteganografia. Lembre-se que os bits menos significativos dos pixels da imagem fornecida deverão compor os bits mais significativos dos pixels da imagem recuperada. O programa deve receber como parâmetros de linha de comando o nome da imagem resultante da esteganografia.</p>
@@ -281,7 +327,7 @@ Imagem sem borda:</p>
 Imagem realce:</p>
 <p align='center'><img src='./5 - labelling/image_realce.png'></p>
 Imagem preenchida:</p>
-<p align='center'><img src='./5 - labelling/labelling.png'></p>
+<p align='center'><img src='./5 - labelling/labeling.png'></p>
 Comparativo final:</p>
 <p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'></p>
 Valores:</p>
@@ -483,9 +529,273 @@ if __name__ == "__main__":
     main()
 ```
 Saída em GIF:</p>
-<p align='center'><img src='./7 - laplgauss/exemplo7.gif'></p>
+<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'></p>
+
+# 🔭 Exercício 8
+
+Utilizando o programa exemplos/addweighted.cpp como referência, implemente um programa tiltshift.cpp. Três ajustes deverão ser providos na tela da interface:</p>
+
+-Um ajuste para regular a altura da região central que entrará em foco;</p>
+
+-Um ajuste para regular a força de decaimento da região borrada;</p>
+
+-Um ajuste para regular a posição vertical do centro da região que entrará em foco. Finalizado o programa, a imagem produzida deverá ser salva em arquivo.</p>
+
+# Solução
+
+Para a resolução primeiramente foi definida a classe TiltShift, que contém variáveis irão armazenar configurações e parâmetros. Utilizando o método construtor, definimos os parâmetros iniciais para a altura l1, o centro l2 e o decaimento d do efeito tilt-shift, em seguida criamos as barras de controle que permitirão alterar os parâmetros e calculamos o alpha entre 0 e 1, baseado nos parâmetros fornecidos. Quando um parâmetro é alterado o método change altera os pesos pela imagem desfocada e utiliza um filtro de média para sua geração e realiza uma normalização da mesma, por fim é apresentada a imagem desfocada de acordo com os parâmetros e posterioemente salva, como veremos a seguir:</p>
+
+```python
+import cv2
+import numpy as np
+
+class TiltShift:
+    __slider_max = 100
+    __track_bars = False
+    __d_window_name = "forca decaimento"
+    __l1_window_name = "altura"
+    __l2_window_name = "centro"
+    __window_name = "Tilt-Shift"
+    __original_image: np.ndarray = None
+    __blurred_image: np.ndarray = None
+    __ones: np.ndarray = None
+    tilt_shift: np.ndarray = None
+    __delay = -1
+
+    def __init__(self, l1=30, l2=60, d=30):
+        self.__d = d
+        self.__l1 = l1
+        self.__l2_len = l2
+        self.__mean_kernel = np.ones((9, 9), np.float32) / 81
+
+    def __create_track_bars(self, window_name: str):
+        try:
+            cv2.getWindowProperty(window_name, 0)
+        except:
+            cv2.namedWindow(window_name)
+
+        self.__window_name = window_name
+        cv2.createTrackbar(self.__d_window_name, window_name, self.__d, self.__slider_max, self.__change)
+        cv2.createTrackbar(self.__l1_window_name, window_name, self.__l1, self.__slider_max, self.__change)
+        cv2.createTrackbar(self.__l2_window_name, window_name, self.__l2_len, self.__slider_max, self.__change)
+        self.__track_bars = True
+
+    def __alpha_f(self, x) -> float:
+        l2 = self.__l1 + self.__l2_len
+        return 0.5 * (np.tanh((x - self.__l1) / self.__d) - np.tanh((x - l2) / self.__d))
+
+    def __change(self, value: int):
+        self.__update_parameters()
+
+        original_weight = np.zeros(self.__original_image.shape)
+        blurred_weight = np.zeros(self.__blurred_image.shape)
+
+        for x in range(int(original_weight.shape[0])):
+            alpha = self.__alpha_f(x)
+
+            blurred_weight[x, :] += 1 - alpha
+            original_weight[x, :, :] += alpha
+
+        tilt = np.multiply(original_weight, self.__original_image) / 255
+        shift = np.multiply(blurred_weight, self.__blurred_image) / 255
+
+        self.tilt_shift = tilt + shift
+        if self.__delay > -1:
+            cv2.imshow(self.__window_name, self.tilt_shift)
+
+    @staticmethod
+    def __normalize(x: int, t: int) -> float:
+        return x * t / 100
+
+    def __update_parameters(self):
+        if self.__track_bars:
+            self.__l1 = cv2.getTrackbarPos(self.__l1_window_name, self.__window_name) - 1
+            self.__l2_len = cv2.getTrackbarPos(self.__l2_window_name, self.__window_name)
+            self.__d = 0.5 * cv2.getTrackbarPos(self.__d_window_name, self.__window_name) + 1
+            self.__l1 = self.__normalize(self.__l1, self.__original_image.shape[0])
+            self.__l2_len = self.__normalize(self.__l2_len, self.__original_image.shape[1] / 2)
+
+    def show_track_bars(self, window_name: str):
+        if not self.__track_bars:
+            self.__create_track_bars(window_name)
+
+    def show_tilt_shift(self, delay: int):
+        self.__delay = delay
+        self.__change(0)
+
+        if delay > -1:
+            cv2.imshow("original image", self.__original_image)
+            cv2.waitKey(delay)
+
+    def __blurring_image(self):
+        self.__blurred_image = cv2.filter2D(self.__original_image, cv2.CV_32F, self.__mean_kernel)
+
+        for i in range(5):
+            self.__blurred_image = cv2.filter2D(self.__blurred_image, cv2.CV_32F, self.__mean_kernel)
+
+    def load_image(self, image_path: str):
+        self.__original_image = cv2.imread(image_path)
+        if self.__original_image is None:
+            print("erro ao localizar")
+            exit(1)
+        self.__blurring_image()
+
+    def set_image(self, image: np.ndarray):
+        self.__original_image = image
+        self.__blurring_image()
+
+    def test_function_alpha(self):
+        from matplotlib import pyplot
+
+        x = np.array([i for i in range(129)])
+        y = self.__alpha_f(x)
+        pyplot.plot(x, 1 - y)
+        pyplot.show()
+
+    def save_image(self, path: str):
+        cv2.imwrite(path, cv2.UMat(self.tilt_shift * 255))
+
+if __name__ == '__main__':
+    tilt_shift = TiltShift()
+    tilt_shift.load_image("aquatico.jpg")
+    tilt_shift.show_track_bars("Tilt-Shift")
+    tilt_shift.show_tilt_shift(0)
+    tilt_shift.save_image("tiltShift_aquatico.jpg")
+```
+Entrada:</p>
+<p align='center'><img src='./8 - tiltshift/aquatico.jpg'></p>
+Saída em GIF:</p>
+<p align='center'><img src='./8 - tiltshift/exemplo_8.gif'></p>
+Exemplo de imagem salva:</p>
+<p align='center'><img src='./8 - tiltshift/tiltShift_aquatico.jpg'></p>
 
 ## 🔔 PARTE II
+
+# 🔭 Exercício 9
+
+Utilizando os programa exemplos/dftimage.cpp, calcule e apresente o espectro de magnitude da imagem Figura 7.</p>
+
+Compare o espectro de magnitude gerado para a figura Figura 7 com o valor teórico da transformada de Fourier da senóide.</p>
+
+Usando agora o filestorage.cpp, mostrado na Listagem 4 como referência, adapte o programa exemplos/dftimage.cpp para ler a imagem em ponto flutuante armazenada no arquivo YAML equivalente (ilustrado na Listagem 5).</p>
+
+Compare o novo espectro de magnitude gerado com o valor teórico da transformada de Fourier da senóide. O que mudou para que o espectro de magnitude gerado agora esteja mais próximo do valor teórico? Porque isso aconteceu?</p>
+
+# Solução
+
+O resultado do espectro de magnitude gerado pelo código representa a magnitude da transformada de Fourier da imagem, mas essa não é idêntica ao valor teórico da transformada de Fourier de uma senoide pura, visto que, para o funcionamento do código foram feitas alterações no valor do log e consequentemente ocorrer uma modificação na distribuição de valores do espectro. Além disso, a diferença é esperada devido às características específicas da imagem processada e às transformações aplicadas durante o cálculo e visualização do espectro, como veremos a seguir:</p>
+
+Código original convertido para python:</p> 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def swap_quadrants(image):
+    # se a imagem tiver tamanho ímpar, recorta a região para o maior
+    image = image[:image.shape[0] & -2, :image.shape[1] & -2]
+
+    centerX = image.shape[1] // 2
+    centerY = image.shape[0] // 2
+
+    # rearranja os quadrantes da transformada de Fourier de forma que 
+    # a origem fique no centro da imagem
+    # A B   ->  D C
+    # C D       B A
+    A = image[:centerY, :centerX]
+    B = image[:centerY, centerX:]
+    C = image[centerY:, :centerX]
+    D = image[centerY:, centerX:]
+
+    # swap quadrants (Top-Left with Bottom-Right)
+    tmp = A.copy()
+    A[:] = D
+    D[:] = tmp
+
+    # swap quadrant (Top-Right with Bottom-Left)
+    tmp = B.copy()
+    B[:] = C
+    C[:] = tmp
+
+def calculate_magnitude_spectrum(image):
+    dft_M = cv2.getOptimalDFTSize(image.shape[0])
+    dft_N = cv2.getOptimalDFTSize(image.shape[1])
+    padded = cv2.copyMakeBorder(image, 0, dft_M - image.shape[0], 0, dft_N - image.shape[1], cv2.BORDER_CONSTANT, value=0)
+
+    # calcula a DFT
+    complex_image = cv2.dft(np.float32(padded), flags=cv2.DFT_COMPLEX_OUTPUT)
+    swap_quadrants(complex_image)
+
+    # calcula o espectro de magnitude
+    magnitude = cv2.magnitude(complex_image[:, :, 0], complex_image[:, :, 1])
+    magnitude += 1
+    magnitude = np.log(magnitude)
+    magnitude = cv2.normalize(magnitude, None, 0, 1, cv2.NORM_MINMAX)
+
+    return magnitude
+
+image = cv2.imread("teste9.png", cv2.IMREAD_GRAYSCALE)
+
+# Calcula o espectro de magnitude
+magnitude_spectrum = calculate_magnitude_spectrum(image)
+
+# Exibe a imagem original e o espectro de magnitude
+plt.subplot(121), plt.imshow(image, cmap="gray")
+plt.title("Imagem"), plt.axis("off")
+plt.subplot(122), plt.imshow(magnitude_spectrum, cmap="gray")
+plt.title("Espectro de magnitude"), plt.axis("off")
+plt.show()
+```
+A seguir o código modificado para ponto flutuante:</p> 
+```python
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def swap_quadrants(image):
+    tmp = np.copy(image)
+    cx = image.shape[1] // 2
+    cy = image.shape[0] // 2
+    image[:cy, :cx] = tmp[cy:, cx:]
+    image[cy:, cx:] = tmp[:cy, :cx]
+    image[:cy, cx:] = tmp[cy:, :cx]
+    image[cy:, :cx] = tmp[:cy, cx:]
+
+def main():
+    # Carrega a imagem em ponto flutuante a partir do arquivo YAML
+    fs = cv2.FileStorage("senoideatt.yml", cv2.FILE_STORAGE_READ)
+    image = fs.getNode("mat").mat()
+    fs.release()
+
+    # Calcula a transformada de Fourier
+    complex_image = cv2.dft(image, flags=cv2.DFT_COMPLEX_OUTPUT)
+    swap_quadrants(complex_image)
+
+    # Separa os planos real e imaginário
+    planes = cv2.split(complex_image)
+
+    # Calcula o espectro de magnitude
+    magnitude = cv2.magnitude(planes[0], planes[1])
+    magnitude += 1
+    cv2.log(magnitude, magnitude)
+
+    # Normaliza a magnitude
+    cv2.normalize(magnitude, magnitude, 0, 1, cv2.NORM_MINMAX)
+
+    # Exibe as imagens processadas
+    cv2.imshow("Imagem", image.astype(np.uint8))
+    cv2.imshow("Espectro de magnitude", magnitude)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
+```
+Saída código original:</p>
+<p align='center'><img src='./9 - fourier/result9_1.png'></p>
+
+Saída código ponto flutuante:</p>
+<p align='center'><img src='./9 - fourier/result9_2.png'></p>
 
 ## 🔔 PARTE III
 
@@ -505,7 +815,7 @@ Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como refer
 
 # Solução
 
-Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algortimo de canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
+Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algoritmo de Canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
 ```python
 import cv2
 import numpy as np
@@ -584,13 +894,13 @@ Saídas:</p>
 Aplicação de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/borda_canny.png'></p>
 Aplicação do Pontilhismo:</p>
-<p align='center'><img src='./11 - pontcannya/pontilhada.png'></p>
-Redultado da correção do pontilhismo pelas bordas de Canny:</p>
+<p align='center'><img src='./11 - pontcanny/pontilhada.png'></p>
+Resultado da correção do pontilhismo pelas bordas de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/cannypoints.png'></p>
 
 # 🔭 Exercício 12
 
-Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p
+Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p>
 
 # Solução
 
@@ -604,7 +914,6 @@ import io
 nClusters = 8
 nRodadas = 1
 
-# URL da imagem da internet
 image_url = "https://img.freepik.com/fotos-premium/colecao-de-frutas-de-fundo-alimentar-macas-bagas-banana-quadrado-laranjas-frutas_770123-2578.jpg?w=2000"
 
 # Faz o download da imagem da internet
