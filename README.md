@@ -11,6 +11,19 @@ Neste repositório serão apresentados os códigos, resultados e explicações a
 
 Para rodar os códigos, é preciso ter Python instalado na sua máquina e a biblioteca OpenCV, em alguns casos foram utilizados outras biblioetecas especificadas em cada código. Contudo, a seguir serão apresentados os códigos, explicações e os respectivos resultados obtidos em cada um. Para melhor organização eles estão dividos em Parte I, II, III e IV como no tutotial do professor.
 
+## Sumário
+
+[[CAPÍTULO 2]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-21)</p> 
+[[CAPÍTULO 3]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-3)</p> 
+[[CAPÍTULO 4]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-4)</p> 
+[[CAPÍTULO 5]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-51)</p> 
+[[CAPÍTULO 6]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-61)</p> 
+[[CAPÍTULO 7]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-7)</p> 
+[[CAPÍTULO 8]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-8)</p> 
+[[CAPÍTULO 9]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-9)</p> 
+[[CAPÍTULO 11]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-11)</p> 
+[[CAPÍTULO 12]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-12)</p> 
+
 ## 🔔 PARTE I
 
 # 🔭 Exercício 2.1
@@ -171,7 +184,7 @@ cv2.destroyAllWindows()
 ```
 Saídas:</p>
 <p align='center'><img src='./3 - senoide/senoideatt.png'></p>
-[[Link arquivo YML]]('./3 - senoide/senoideatt.yml')</p>
+[[Link arquivo YML]](https://github.com/TeophiloVitor/PDI_Lista/blob/main/3%20-%20senoide/senoideatt.yml)</p>
 
 # 🔭 Exercício 4
 
