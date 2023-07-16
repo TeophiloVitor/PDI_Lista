@@ -26,7 +26,7 @@ Para rodar os códigos, é preciso ter Python instalado na sua máquina e a bibl
 
 ## 🔔 PARTE I
 
-# 🔭 Exercício 2.1
+## 🔭 Exercício 2.1
 
 Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa regions.cpp. Esse programa deverá solicitar ao usuário as coordenadas de dois pontos P1 e P2 localizados dentro dos limites do tamanho da imagem e exibir que lhe for fornecida. Entretanto, a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 será exibida com o negativo da imagem na região correspondente.</p>
 
@@ -79,7 +79,7 @@ Entrada:</p>
 Saída:</p>
 <p align='center'><img src='./1 - regions/resultex1.png'></p>
 
-# 🔭 Exercício 2.2
+## 🔭 Exercício 2.2
 
 Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa trocaregioes.cpp. Seu programa deverá trocar os quadrantes em diagonal na imagem. Explore o uso da classe Mat e seus construtores para criar as regiões que serão trocadas.</p>
 
@@ -140,7 +140,7 @@ Entrada:</p>
 Saída:</p>
 <p align='center'><img src='./2 - trocaregions/biel_6.png'></p>
 
-# 🔭 Exercício 3
+## 🔭 Exercício 3
 
 Utilizando o programa filestorage.cpp como base, crie um programa que gere uma imagem de dimensões 256x256 pixels contendo uma senóide de 4 períodos com amplitude de 127 desenhada na horizontal, como aquela apresentada na Figura 6 do material. Grave a imagem no formato PNG e no formato YML. Compare os arquivos gerados, extraindo uma linha de cada imagem gravada e comparando a diferença entre elas. Trace um gráfico da diferença calculada ao longo da linha correspondente extraída nas imagens. O que você observa?</p>
 
@@ -186,7 +186,7 @@ Saídas:</p>
 <p align='center'><img src='./3 - senoide/senoideatt.png'></p>
 [[Link arquivo YML]](https://github.com/TeophiloVitor/PDI_Lista/blob/main/3%20-%20senoide/senoideatt.yml)</p>
 
-# 🔭 Exercício 4
+## 🔭 Exercício 4
 
 Usando o programa esteg-encode.cpp como referência para esteganografia, escreva um programa que recupere a imagem codificada de uma imagem resultante de esteganografia. Lembre-se que os bits menos significativos dos pixels da imagem fornecida deverão compor os bits mais significativos dos pixels da imagem recuperada. O programa deve receber como parâmetros de linha de comando o nome da imagem resultante da esteganografia.</p>
 
@@ -241,7 +241,7 @@ Entrada:</p>
 Saída:</p>
 <p align='center'><img src='./4 - esteganografia/imagem_final.png'></p>
 
-# 🔭 Exercício 5.1
+## 🔭 Exercício 5.1
 
 Observando-se o programa labeling.cpp como exemplo, é possível verificar que caso existam mais de 255 objetos na cena, o processo de rotulação poderá ficar comprometido. Identifique a situação em que isso ocorre e proponha uma solução para este problema.</p>
 
@@ -249,7 +249,7 @@ Observando-se o programa labeling.cpp como exemplo, é possível verificar que c
 
 Para resolver o problema de casos que a imagem tenha mais que 255 objetos a serem rotulados, podemos usar uma estrategia de fazer o rotulo ser em pontu flutuante, ou rotula usando a operação mod de 255.</p>
 
-# 🔭 Exercício 5.2
+## 🔭 Exercício 5.2
 
 Aprimore o algoritmo de contagem apresentado para identificar regiões com ou sem buracos internos que existam na cena. Assuma que objetos com mais de um buraco podem existir. Inclua suporte no seu algoritmo para não contar bolhas que tocam as bordas da imagem. Não se pode presumir, a priori, que elas tenham buracos ou não.</p>
 
@@ -346,7 +346,7 @@ Comparativo final:</p>
 Valores:</p>
 <p align='center'><img src='./5 - labelling/resultado_fimparci_5.2.png'></p>
 
-# 🔭 Exercício 6.1
+## 🔭 Exercício 6.1
 
 Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa equalize.cpp. Este deverá, para cada imagem capturada, realizar a equalização do histogram antes de exibir a imagem. Teste sua implementação apontando a câmera para ambientes com iluminações variadas e observando o efeito gerado. Assuma que as imagens processadas serão em tons de cinza.</p>
 
@@ -394,7 +394,7 @@ if __name__ == "__main__":
 Saída em GIF:</p>
 <p align='center'><img src='./6 - equalize/exemplo6_1.gif'></p>
 
-# 🔭 Exercício 6.2
+## 🔭 Exercício 6.2
 
 Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa motiondetector.cpp. Este deverá continuamente calcular o histograma da imagem (apenas uma componente de cor é suficiente) e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, ative um alarme. Utilize uma função de comparação que julgar conveniente.</p>
 
@@ -447,7 +447,7 @@ if __name__ == "__main__":
 Saída em GIF:</p>
 <p align='center'><img src='./6 - equalize/exemplo6_2.gif'></p>
 
-# 🔭 Exercício 7
+## 🔭 Exercício 7
 
 Utilizando o programa exemplos/filtroespacial.cpp como referência, implemente um programa laplgauss.cpp. O programa deverá acrescentar mais uma funcionalidade ao exemplo fornecido, permitindo que seja calculado o laplaciano do gaussiano das imagens capturadas. Compare o resultado desse filtro com a simples aplicação do filtro laplaciano.</p>
 
@@ -544,7 +544,7 @@ if __name__ == "__main__":
 Saída em GIF:</p>
 <p align='center'><img src='./7 - laplgauss/exemplo_7.gif'></p>
 
-# 🔭 Exercício 8
+## 🔭 Exercício 8
 
 Utilizando o programa exemplos/addweighted.cpp como referência, implemente um programa tiltshift.cpp. Três ajustes deverão ser providos na tela da interface:</p>
 
@@ -684,7 +684,7 @@ Exemplo de imagem salva:</p>
 
 ## 🔔 PARTE II
 
-# 🔭 Exercício 9
+## 🔭 Exercício 9
 
 Utilizando os programa exemplos/dftimage.cpp, calcule e apresente o espectro de magnitude da imagem Figura 7.</p>
 
@@ -812,7 +812,7 @@ Saída código ponto flutuante:</p>
 
 ## 🔔 PARTE III
 
-# 🔭 Exercício 11
+## 🔭 Exercício 11
 
 Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como referência, implemente um programa cannypoints.cpp. A idéia é usar as bordas produzidas pelo algoritmo de Canny para melhorar a qualidade da imagem pontilhista gerada. A forma como a informação de borda será usada é livre. Entretanto, são apresentadas algumas sugestões de técnicas que poderiam ser utilizadas:</p>
 
@@ -911,7 +911,7 @@ Aplicação do Pontilhismo:</p>
 Resultado da correção do pontilhismo pelas bordas de Canny:</p>
 <p align='center'><img src='./11 - pontcanny/cannypoints.png'></p>
 
-# 🔭 Exercício 12
+## 🔭 Exercício 12
 
 Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p>
 
