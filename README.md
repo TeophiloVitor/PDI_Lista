@@ -1,7 +1,8 @@
 # 💡 Listas de exercícios de Processamento Digital de Imagens
 
 ## Discente
-Teophilo Vitor de Carvalho Clemente | 20220080516
+Teophilo Vitor de Carvalho Clemente | 20220080516  
+
 Graduação em Engenharia da Computação - UFRN
 
 ## Objetivo 
