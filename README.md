@@ -74,13 +74,14 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Entrada:
+Entrada:  
+
 <p align='center'><img src='./1 - regions/ebiel.png'>  
     
 Saída:  
 
-<p align='center'><img src='./1 - regions/resultex1.png'>
-
+<p align='center'><img src='./1 - regions/resultex1.png'>  
+    
 ## 🔭 Exercício 2.2
 
 Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa trocaregioes.cpp. Seu programa deverá trocar os quadrantes em diagonal na imagem. Explore o uso da classe Mat e seus construtores para criar as regiões que serão trocadas.
