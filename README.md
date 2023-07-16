@@ -76,11 +76,11 @@ if __name__ == "__main__":
 ```
 Entrada:  
 
-<p align='center'><img src='./1 - regions/ebiel.png'>  
+<p align='center'><img src='./1 - regions/ebiel.png'></p>  
     
 Saída:  
 
-<p align='center'><img src='./1 - regions/resultex1.png'>  
+<p align='center'><img src='./1 - regions/resultex1.png'></p>  
     
 ## 🔭 Exercício 2.2
 
