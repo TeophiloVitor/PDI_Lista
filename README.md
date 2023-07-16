@@ -87,7 +87,7 @@ Utilizando o programa exemplos/pixels.cpp como referência, implemente um progra
 
 ## Solução
 
-Diferente do regions, esse agora não precisamos de interação com o usuário, é simplesmente manipulação da imagem. E para fazer isso feita a quebra da imagem para pegar pedaços e salva-los em uma imagem final com método copy para fazer a modificação na imagem atual, assim conseguindo modificar as áreas da imagem, como mostrado no código a seguir:</p>
+Diferente do regions, esse agora não precisamos de interação com o usuário, é simplesmente manipulação da imagem. E para fazer isso feita a quebra da imagem para pegar pedaços e salva-los em uma imagem final com método copy para fazer a modificação na imagem atual, assim conseguindo modificar as áreas da imagem, como mostrado no código a seguir:
 ```python
 import cv2
 import requests
@@ -138,17 +138,19 @@ if __name__ == "__main__":
     main()
 ```
 Entrada:
-<p align='center'><img src='./1 - regions/ebiel.png'>
-Saída:
+<p align='center'><img src='./1 - regions/ebiel.png'>  
+    
+Saída:  
+
 <p align='center'><img src='./2 - trocaregions/biel_6.png'>
 
 ## 🔭 Exercício 3
 
-Utilizando o programa filestorage.cpp como base, crie um programa que gere uma imagem de dimensões 256x256 pixels contendo uma senóide de 4 períodos com amplitude de 127 desenhada na horizontal, como aquela apresentada na Figura 6 do material. Grave a imagem no formato PNG e no formato YML. Compare os arquivos gerados, extraindo uma linha de cada imagem gravada e comparando a diferença entre elas. Trace um gráfico da diferença calculada ao longo da linha correspondente extraída nas imagens. O que você observa?</p>
+Utilizando o programa filestorage.cpp como base, crie um programa que gere uma imagem de dimensões 256x256 pixels contendo uma senóide de 4 períodos com amplitude de 127 desenhada na horizontal, como aquela apresentada na Figura 6 do material. Grave a imagem no formato PNG e no formato YML. Compare os arquivos gerados, extraindo uma linha de cada imagem gravada e comparando a diferença entre elas. Trace um gráfico da diferença calculada ao longo da linha correspondente extraída nas imagens. O que você observa?
 
 ## Solução
 
-Para resolver esse problema foram feitas algumas modificações no código original, como resultado disso e da diminuição do número de períodos usados, agora 4, vemos uma redução na amostragem e traços mais grossos na representação da senóide, fato esse também comprovado no arquivo YML, como mostrado no código a seguir:</p>
+Para resolver esse problema foram feitas algumas modificações no código original, como resultado disso e da diminuição do número de períodos usados, agora 4, vemos uma redução na amostragem e traços mais grossos na representação da senóide, fato esse também comprovado no arquivo YML, como mostrado no código a seguir:
 ```python
 import cv2
 import numpy as np
@@ -184,17 +186,19 @@ cv2.imshow("Senoide", image_normalized_uint8)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-Saídas:</p>
-<p align='center'><img src='./3 - senoide/senoideatt.png'></p>
-[[Link arquivo YML]](https://github.com/TeophiloVitor/PDI_Lista/blob/main/3%20-%20senoide/senoideatt.yml)</p>
+Saídas:  
+
+<p align='center'><img src='./3 - senoide/senoideatt.png'>  
+    
+[[Link arquivo YML]](https://github.com/TeophiloVitor/PDI_Lista/blob/main/3%20-%20senoide/senoideatt.yml)
 
 ## 🔭 Exercício 4
 
-Usando o programa esteg-encode.cpp como referência para esteganografia, escreva um programa que recupere a imagem codificada de uma imagem resultante de esteganografia. Lembre-se que os bits menos significativos dos pixels da imagem fornecida deverão compor os bits mais significativos dos pixels da imagem recuperada. O programa deve receber como parâmetros de linha de comando o nome da imagem resultante da esteganografia.</p>
+Usando o programa esteg-encode.cpp como referência para esteganografia, escreva um programa que recupere a imagem codificada de uma imagem resultante de esteganografia. Lembre-se que os bits menos significativos dos pixels da imagem fornecida deverão compor os bits mais significativos dos pixels da imagem recuperada. O programa deve receber como parâmetros de linha de comando o nome da imagem resultante da esteganografia.
 
 ## Solução
 
-Para resolver esse problema for montada a estrutura para receber a imagem portadora, em seguida é criada uma matriz de zeros para a imagem que vamos recuperar e após a fazemos uma estrutura de for aninhado para percorrer a imagem portadora e obter a imagem recuperada a cada interação, como mostrado no código a seguir:</p>
+Para resolver esse problema for montada a estrutura para receber a imagem portadora, em seguida é criada uma matriz de zeros para a imagem que vamos recuperar e após a fazemos uma estrutura de for aninhado para percorrer a imagem portadora e obter a imagem recuperada a cada interação, como mostrado no código a seguir:
 ```python
 import cv2
 import numpy as np
@@ -238,26 +242,29 @@ def recover_image():
 if __name__ == "__main__":
     recover_image()
 ```
-Entrada:</p>
-<p align='center'><img src='./4 - esteganografia/esteno.png'></p>
-Saída:</p>
-<p align='center'><img src='./4 - esteganografia/imagem_final.png'></p>
+Entrada:  
+
+<p align='center'><img src='./4 - esteganografia/esteno.png'>  
+    
+Saída:  
+
+<p align='center'><img src='./4 - esteganografia/imagem_final.png'>
 
 ## 🔭 Exercício 5.1
 
-Observando-se o programa labeling.cpp como exemplo, é possível verificar que caso existam mais de 255 objetos na cena, o processo de rotulação poderá ficar comprometido. Identifique a situação em que isso ocorre e proponha uma solução para este problema.</p>
+Observando-se o programa labeling.cpp como exemplo, é possível verificar que caso existam mais de 255 objetos na cena, o processo de rotulação poderá ficar comprometido. Identifique a situação em que isso ocorre e proponha uma solução para este problema.
 
 ## Solução
 
-Para resolver o problema de casos que a imagem tenha mais que 255 objetos a serem rotulados, podemos usar uma estrategia de fazer o rotulo ser em pontu flutuante, ou rotula usando a operação mod de 255.</p>
+Para resolver o problema de casos que a imagem tenha mais que 255 objetos a serem rotulados, podemos usar uma estrategia de fazer o rotulo ser em pontu flutuante, ou rotula usando a operação mod de 255.
 
 ## 🔭 Exercício 5.2
 
-Aprimore o algoritmo de contagem apresentado para identificar regiões com ou sem buracos internos que existam na cena. Assuma que objetos com mais de um buraco podem existir. Inclua suporte no seu algoritmo para não contar bolhas que tocam as bordas da imagem. Não se pode presumir, a priori, que elas tenham buracos ou não.</p>
+Aprimore o algoritmo de contagem apresentado para identificar regiões com ou sem buracos internos que existam na cena. Assuma que objetos com mais de um buraco podem existir. Inclua suporte no seu algoritmo para não contar bolhas que tocam as bordas da imagem. Não se pode presumir, a priori, que elas tenham buracos ou não.
 
 ## Solução
 
-Para retirar as bolhas e buracos que estão nas bordas eu fiz o processo de excluir tanto a primeira e última linha, como também primeira e última coluna e assim usar a semente no floodFill. Já para conta os buracos, usei uma estrategia de pinta o fundo da imagem de branco usando o floodFill assim, a parte de dentro dos buracos ainda ficaria com a cor do fundo original e eu poderia contar agora quantos buracos tem. Sabendo a quantidade de buracos é só aplicar o floodFill na imagem, ver quantos objetos ele encontrou e diminuir do número de buracos, assim nos temos a quantidade de bolhas e buracos, como veremos a seguir:</p>
+Para retirar as bolhas e buracos que estão nas bordas eu fiz o processo de excluir tanto a primeira e última linha, como também primeira e última coluna e assim usar a semente no floodFill. Já para conta os buracos, usei uma estrategia de pinta o fundo da imagem de branco usando o floodFill assim, a parte de dentro dos buracos ainda ficaria com a cor do fundo original e eu poderia contar agora quantos buracos tem. Sabendo a quantidade de buracos é só aplicar o floodFill na imagem, ver quantos objetos ele encontrou e diminuir do número de buracos, assim nos temos a quantidade de bolhas e buracos, como veremos a seguir:
 ```python
 import cv2
 import requests
@@ -334,27 +341,39 @@ if __name__ == "__main__":
     main()
 
 ```
-Entrada:</p>
-<p align='center'><img src='./5 - labelling/bolhas.png'></p>
-Saídas:</p>
-Imagem sem borda:</p>
-<p align='center'><img src='./5 - labelling/image_semborda.png'></p>
-Imagem realce:</p>
-<p align='center'><img src='./5 - labelling/image_realce.png'></p>
-Imagem preenchida:</p>
-<p align='center'><img src='./5 - labelling/labeling.png'></p>
-Comparativo final:</p>
-<p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'></p>
-Valores:</p>
-<p align='center'><img src='./5 - labelling/resultado_fimparci_5.2.png'></p>
+Entrada:  
+
+<p align='center'><img src='./5 - labelling/bolhas.png'>  
+    
+Saídas:  
+
+Imagem sem borda:  
+
+<p align='center'><img src='./5 - labelling/image_semborda.png'>  
+    
+Imagem realce:  
+
+<p align='center'><img src='./5 - labelling/image_realce.png'>  
+    
+Imagem preenchida:  
+
+<p align='center'><img src='./5 - labelling/labeling.png'>  
+    
+Comparativo final:  
+
+<p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'>  
+    
+Valores:  
+
+<p align='center'><img src='./5 - labelling/resultado_fimparci_5.2.png'>
 
 ## 🔭 Exercício 6.1
 
-Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa equalize.cpp. Este deverá, para cada imagem capturada, realizar a equalização do histogram antes de exibir a imagem. Teste sua implementação apontando a câmera para ambientes com iluminações variadas e observando o efeito gerado. Assuma que as imagens processadas serão em tons de cinza.</p>
+Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa equalize.cpp. Este deverá, para cada imagem capturada, realizar a equalização do histogram antes de exibir a imagem. Teste sua implementação apontando a câmera para ambientes com iluminações variadas e observando o efeito gerado. Assuma que as imagens processadas serão em tons de cinza.
 
 ## Solução
 
-Para simular uma entrada em tons de cinza foi usada função cvtColor. Para fazer a equalização do histograma utiizei a função equalizeHist, logo depois fiz propriamente dito o histrograma da imagem original e da equalizada, assim tendo uma comparação entre as duas, como veremos a seguir:</p>
+Para simular uma entrada em tons de cinza foi usada função cvtColor. Para fazer a equalização do histograma utiizei a função equalizeHist, logo depois fiz propriamente dito o histrograma da imagem original e da equalizada, assim tendo uma comparação entre as duas, como veremos a seguir:
 ```python
 import cv2
 
@@ -393,16 +412,17 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Saída em GIF:</p>
-<p align='center'><img src='./6 - equalize/exemplo6_1.gif'></p>
+Saída em GIF:  
+
+<p align='center'><img src='./6 - equalize/exemplo6_1.gif'>  
 
 ## 🔭 Exercício 6.2
 
-Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa motiondetector.cpp. Este deverá continuamente calcular o histograma da imagem (apenas uma componente de cor é suficiente) e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, ative um alarme. Utilize uma função de comparação que julgar conveniente.</p>
+Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa motiondetector.cpp. Este deverá continuamente calcular o histograma da imagem (apenas uma componente de cor é suficiente) e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, ative um alarme. Utilize uma função de comparação que julgar conveniente.
 
 ## Solução
 
-Para solucionar esse exercício tive que criar um histograma que ficasse sempre salvando o último histograma do último frame e comparando com o histograma mais recente. Para fazer a comparação dos histogramas utilizei a função compareHist que me devolve a correlação entre os histogramas, assim consigo criar um if e verificar se esse correlação é alta ou baixa e criar um alerta "Movimento detectado - Ordem:", onde é apresentado no terminal um valor a mais a cada vez que for detectado movimento, como veremos a seguir:</p>
+Para solucionar esse exercício tive que criar um histograma que ficasse sempre salvando o último histograma do último frame e comparando com o histograma mais recente. Para fazer a comparação dos histogramas utilizei a função compareHist que me devolve a correlação entre os histogramas, assim consigo criar um if e verificar se esse correlação é alta ou baixa e criar um alerta "Movimento detectado - Ordem:", onde é apresentado no terminal um valor a mais a cada vez que for detectado movimento, como veremos a seguir:
 ```python
 import cv2
 
@@ -446,16 +466,17 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Saída em GIF:</p>
-<p align='center'><img src='./6 - equalize/exemplo6_2.gif'></p>
+Saída em GIF:  
+
+<p align='center'><img src='./6 - equalize/exemplo6_2.gif'>
 
 ## 🔭 Exercício 7
 
-Utilizando o programa exemplos/filtroespacial.cpp como referência, implemente um programa laplgauss.cpp. O programa deverá acrescentar mais uma funcionalidade ao exemplo fornecido, permitindo que seja calculado o laplaciano do gaussiano das imagens capturadas. Compare o resultado desse filtro com a simples aplicação do filtro laplaciano.</p>
+Utilizando o programa exemplos/filtroespacial.cpp como referência, implemente um programa laplgauss.cpp. O programa deverá acrescentar mais uma funcionalidade ao exemplo fornecido, permitindo que seja calculado o laplaciano do gaussiano das imagens capturadas. Compare o resultado desse filtro com a simples aplicação do filtro laplaciano.
 
 ## Solução
 
-Para solucionar esse exercício foi mais simples simples, foi somente adicionar a mascara do laplaciano do gaussiano junto as mascaras dos outros filtro e colocar a opção de escolher digitando a tecla p. Analisando o filtro laplaciano com o laplaciano do gaussiano percebe-se uma acentuação dos contornos, deixando a listra mais espessa e também mais contornos visíveis, como veremos a seguir:</p>
+Para solucionar esse exercício foi mais simples simples, foi somente adicionar a mascara do laplaciano do gaussiano junto as mascaras dos outros filtro e colocar a opção de escolher digitando a tecla p. Analisando o filtro laplaciano com o laplaciano do gaussiano percebe-se uma acentuação dos contornos, deixando a listra mais espessa e também mais contornos visíveis, como veremos a seguir:
 ```python
 import cv2
 import numpy as np
@@ -543,22 +564,23 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Saída em GIF:</p>
-<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'></p>
+Saída em GIF:  
+
+<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'>
 
 ## 🔭 Exercício 8
 
-Utilizando o programa exemplos/addweighted.cpp como referência, implemente um programa tiltshift.cpp. Três ajustes deverão ser providos na tela da interface:</p>
+Utilizando o programa exemplos/addweighted.cpp como referência, implemente um programa tiltshift.cpp. Três ajustes deverão ser providos na tela da interface:  
 
--Um ajuste para regular a altura da região central que entrará em foco;</p>
+-Um ajuste para regular a altura da região central que entrará em foco;  
 
--Um ajuste para regular a força de decaimento da região borrada;</p>
+-Um ajuste para regular a força de decaimento da região borrada;  
 
--Um ajuste para regular a posição vertical do centro da região que entrará em foco. Finalizado o programa, a imagem produzida deverá ser salva em arquivo.</p>
+-Um ajuste para regular a posição vertical do centro da região que entrará em foco. Finalizado o programa, a imagem produzida deverá ser salva em arquivo.
 
 ## Solução
 
-Para a resolução primeiramente foi definida a classe TiltShift, que contém variáveis irão armazenar configurações e parâmetros. Utilizando o método construtor, definimos os parâmetros iniciais para a altura l1, o centro l2 e o decaimento d do efeito tilt-shift, em seguida criamos as barras de controle que permitirão alterar os parâmetros e calculamos o alpha entre 0 e 1, baseado nos parâmetros fornecidos. Quando um parâmetro é alterado o método change altera os pesos pela imagem desfocada e utiliza um filtro de média para sua geração e realiza uma normalização da mesma, por fim é apresentada a imagem desfocada de acordo com os parâmetros e posterioemente salva, como veremos a seguir:</p>
+Para a resolução primeiramente foi definida a classe TiltShift, que contém variáveis irão armazenar configurações e parâmetros. Utilizando o método construtor, definimos os parâmetros iniciais para a altura l1, o centro l2 e o decaimento d do efeito tilt-shift, em seguida criamos as barras de controle que permitirão alterar os parâmetros e calculamos o alpha entre 0 e 1, baseado nos parâmetros fornecidos. Quando um parâmetro é alterado o método change altera os pesos pela imagem desfocada e utiliza um filtro de média para sua geração e realiza uma normalização da mesma, por fim é apresentada a imagem desfocada de acordo com os parâmetros e posterioemente salva, como veremos a seguir:
 
 ```python
 import cv2
@@ -677,30 +699,36 @@ if __name__ == '__main__':
     tilt_shift.show_tilt_shift(0)
     tilt_shift.save_image("tiltShift_aquatico.jpg")
 ```
-Entrada:</p>
-<p align='center'><img src='./8 - tiltshift/aquatico.jpg'></p>
-Saída em GIF:</p>
-<p align='center'><img src='./8 - tiltshift/exemplo_8.gif'></p>
-Exemplo de imagem salva:</p>
-<p align='center'><img src='./8 - tiltshift/tiltShift_aquatico.jpg'></p>
+Entrada:  
+
+<p align='center'><img src='./8 - tiltshift/aquatico.jpg'>  
+    
+Saída em GIF:  
+
+<p align='center'><img src='./8 - tiltshift/exemplo_8.gif'>  
+    
+Exemplo de imagem salva:  
+
+<p align='center'><img src='./8 - tiltshift/tiltShift_aquatico.jpg'>
 
 ## 🔔 PARTE II
 
 ## 🔭 Exercício 9
 
-Utilizando os programa exemplos/dftimage.cpp, calcule e apresente o espectro de magnitude da imagem Figura 7.</p>
+Utilizando os programa exemplos/dftimage.cpp, calcule e apresente o espectro de magnitude da imagem Figura 7.  
 
-Compare o espectro de magnitude gerado para a figura Figura 7 com o valor teórico da transformada de Fourier da senóide.</p>
+Compare o espectro de magnitude gerado para a figura Figura 7 com o valor teórico da transformada de Fourier da senóide.  
 
-Usando agora o filestorage.cpp, mostrado na Listagem 4 como referência, adapte o programa exemplos/dftimage.cpp para ler a imagem em ponto flutuante armazenada no arquivo YAML equivalente (ilustrado na Listagem 5).</p>
+Usando agora o filestorage.cpp, mostrado na Listagem 4 como referência, adapte o programa exemplos/dftimage.cpp para ler a imagem em ponto flutuante armazenada no arquivo YAML equivalente (ilustrado na Listagem 5).  
 
-Compare o novo espectro de magnitude gerado com o valor teórico da transformada de Fourier da senóide. O que mudou para que o espectro de magnitude gerado agora esteja mais próximo do valor teórico? Porque isso aconteceu?</p>
+Compare o novo espectro de magnitude gerado com o valor teórico da transformada de Fourier da senóide. O que mudou para que o espectro de magnitude gerado agora esteja mais próximo do valor teórico? Porque isso aconteceu?
 
 ## Solução
 
-O resultado do espectro de magnitude gerado pelo código representa a magnitude da transformada de Fourier da imagem, mas essa não é idêntica ao valor teórico da transformada de Fourier de uma senoide pura, visto que, para o funcionamento do código foram feitas alterações no valor do log e consequentemente ocorrer uma modificação na distribuição de valores do espectro. Além disso, a diferença é esperada devido às características específicas da imagem processada e às transformações aplicadas durante o cálculo e visualização do espectro, como veremos a seguir:</p>
+O resultado do espectro de magnitude gerado pelo código representa a magnitude da transformada de Fourier da imagem, mas essa não é idêntica ao valor teórico da transformada de Fourier de uma senoide pura, visto que, para o funcionamento do código foram feitas alterações no valor do log e consequentemente ocorrer uma modificação na distribuição de valores do espectro. Além disso, a diferença é esperada devido às características específicas da imagem processada e às transformações aplicadas durante o cálculo e visualização do espectro, como veremos a seguir:  
 
-Código original convertido para python:</p> 
+Código original convertido para python:  
+
 ```python
 import cv2
 import numpy as np
@@ -761,7 +789,8 @@ plt.subplot(122), plt.imshow(magnitude_spectrum, cmap="gray")
 plt.title("Espectro de magnitude"), plt.axis("off")
 plt.show()
 ```
-A seguir o código modificado para ponto flutuante:</p> 
+A seguir o código modificado para ponto flutuante:  
+
 ```python
 import cv2
 import numpy as np
@@ -806,31 +835,33 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Saída código original:</p>
-<p align='center'><img src='./9 - fourier/result9_1.png'></p>
+Saída código original:  
 
-Saída código ponto flutuante:</p>
-<p align='center'><img src='./9 - fourier/result9_2.png'></p>
+<p align='center'><img src='./9 - fourier/result9_1.png'>  
+    
+Saída código ponto flutuante:  
+
+<p align='center'><img src='./9 - fourier/result9_2.png'>
 
 ## 🔔 PARTE III
 
 ## 🔭 Exercício 11
 
-Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como referência, implemente um programa cannypoints.cpp. A idéia é usar as bordas produzidas pelo algoritmo de Canny para melhorar a qualidade da imagem pontilhista gerada. A forma como a informação de borda será usada é livre. Entretanto, são apresentadas algumas sugestões de técnicas que poderiam ser utilizadas:</p>
+Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como referência, implemente um programa cannypoints.cpp. A idéia é usar as bordas produzidas pelo algoritmo de Canny para melhorar a qualidade da imagem pontilhista gerada. A forma como a informação de borda será usada é livre. Entretanto, são apresentadas algumas sugestões de técnicas que poderiam ser utilizadas:  
 
--Desenhar pontos grandes na imagem pontilhista básica;</p>
+-Desenhar pontos grandes na imagem pontilhista básica;  
 
--Usar a posição dos pixels de borda encontrados pelo algoritmo de Canny para desenhar pontos nos respectivos locais na imagem gerada;</p>
+-Usar a posição dos pixels de borda encontrados pelo algoritmo de Canny para desenhar pontos nos respectivos locais na imagem gerada;  
 
--Experimente ir aumentando os limiares do algoritmo de Canny e, para cada novo par de limiares, desenhar círculos cada vez menores nas posições encontradas;</p>
+-Experimente ir aumentando os limiares do algoritmo de Canny e, para cada novo par de limiares, desenhar círculos cada vez menores nas posições encontradas;  
 
--Escolha uma imagem de seu gosto e aplique a técnica que você desenvolveu;</p>
+-Escolha uma imagem de seu gosto e aplique a técnica que você desenvolveu;  
 
--Descreva no seu relatório detalhes do procedimento usado para criar sua técnica pontilhista.</p>
+-Descreva no seu relatório detalhes do procedimento usado para criar sua técnica pontilhista.
 
 ## Solução
 
-Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algoritmo de Canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
+Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algoritmo de Canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:
 ```python
 import cv2
 import numpy as np
@@ -903,23 +934,31 @@ cv2.waitKey(0)
 cv2.imwrite("cannypoints.png", points)
 cv2.destroyAllWindows()
 ```
-Entrada:</p>
-<p align='center'><img src='./11 - pontcanny/exer11.jpg'></p>
-Saídas:</p>
-Aplicação de Canny:</p>
-<p align='center'><img src='./11 - pontcanny/borda_canny.png'></p>
-Aplicação do Pontilhismo:</p>
-<p align='center'><img src='./11 - pontcanny/pontilhada.png'></p>
-Resultado da correção do pontilhismo pelas bordas de Canny:</p>
-<p align='center'><img src='./11 - pontcanny/cannypoints.png'></p>
+Entrada:  
+
+<p align='center'><img src='./11 - pontcanny/exer11.jpg'>  
+    
+Saídas:  
+
+Aplicação de Canny:  
+
+<p align='center'><img src='./11 - pontcanny/borda_canny.png'>  
+    
+Aplicação do Pontilhismo:  
+
+<p align='center'><img src='./11 - pontcanny/pontilhada.png'>  
+    
+Resultado da correção do pontilhismo pelas bordas de Canny:  
+
+<p align='center'><img src='./11 - pontcanny/cannypoints.png'>
 
 ## 🔭 Exercício 12
 
-Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p>
+Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.
 
 ## Solução
 
-A solução é dada da seguinte forma, a matriz com as amostras samples deve conter em cada linha uma das amostras a ser processada pela função nClusters que informa a quantidade de aglomerados que se deseja obter, no nosso caso 8. A matriz rotulos é um objeto do tipo Mat preenchido com elementos do tipo int, onde cada elemento identifica a classe à qual pertence a amostra na matriz samples. Aqui realizamos o máximo de até 10000 iterações ou tolerância de 0.0001 para finalizar o algoritmo. O algoritmo é repetido por uma quantidade de vezes definida por nRodadas, assim a rodada que produz a menor soma de distâncias dos pontos para seus respectivos centros é escolhida como vencedora. Foi utilizada a inicialização dos centros de forma aleatória com KMEANS_RANDOM_CENTERS, como veremos a seguir:</p>
+A solução é dada da seguinte forma, a matriz com as amostras samples deve conter em cada linha uma das amostras a ser processada pela função nClusters que informa a quantidade de aglomerados que se deseja obter, no nosso caso 8. A matriz rotulos é um objeto do tipo Mat preenchido com elementos do tipo int, onde cada elemento identifica a classe à qual pertence a amostra na matriz samples. Aqui realizamos o máximo de até 10000 iterações ou tolerância de 0.0001 para finalizar o algoritmo. O algoritmo é repetido por uma quantidade de vezes definida por nRodadas, assim a rodada que produz a menor soma de distâncias dos pontos para seus respectivos centros é escolhida como vencedora. Foi utilizada a inicialização dos centros de forma aleatória com KMEANS_RANDOM_CENTERS, como veremos a seguir:
 ```python
 import cv2
 import numpy as np
@@ -958,12 +997,15 @@ for i in range(10):
 
 cv2.destroyAllWindows()
 ```
-Entrada:</p>
-<p align='center'><img src='./12 - kmeans/exe12.jpg'></p>
-Saída em GIF com as 10 imagens geradas:</p>
-<p align='center'><img src='./12 - kmeans/kmeans.gif'></p>
+Entrada:  
 
+<p align='center'><img src='./12 - kmeans/exe12.jpg'>  
+    
+Saída em GIF com as 10 imagens geradas:  
+
+<p align='center'><img src='./12 - kmeans/kmeans.gif'>
 
 ## Referências
--Página da disciplina de PDI [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/)
+-Página da disciplina de PDI [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/)  
+
 -Repositório Professor Agostinho [![Repository](https://img.shields.io/badge/-Repo-191A1B?style=flat-square&logo=github)](https://github.com/agostinhobritojr)
