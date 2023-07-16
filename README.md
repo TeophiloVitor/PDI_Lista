@@ -1,8 +1,8 @@
 # 💡 Listas de exercícios de Processamento Digital de Imagens
 
 ## Discente
-Teophilo Vitor de Carvalho Clemente | 20220080516</p>
-Graduação em Engenharia da Computação - UFRN</p> 
+Teophilo Vitor de Carvalho Clemente | 20220080516
+Graduação em Engenharia da Computação - UFRN
 
 ## Objetivo 
 Neste repositório serão apresentados os códigos, resultados e explicações acerca dos exercícios desenvolvidos ao longo da disciplina de Processamento Digital de Imagens, os respectivos enunciados e material da disciplina podem ser encontrados na página do professor Dr. Agostinho [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/). Os códigos foram desenvolvidos em Python juntamente com a biblioteca OpenCV, para isso converti os códigos disponibilizados pelo professor para Python e no discorrer desde README eles serão apresentados e explicados.
@@ -30,7 +30,7 @@ Para rodar os códigos, é preciso ter Python instalado na sua máquina e a bibl
 
 Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa regions.cpp. Esse programa deverá solicitar ao usuário as coordenadas de dois pontos P1 e P2 localizados dentro dos limites do tamanho da imagem e exibir que lhe for fornecida. Entretanto, a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 será exibida com o negativo da imagem na região correspondente.</p>
 
-# Solução
+## Solução
 
 Para resolver foram implementas entradas para o usuário escolher qual região ele queria deixar em negativo. Para deixar deixar a região em negativo foi feito um for para percorrer área escolhida e fazer a operação que faz com que o pixel da imagem se torne negativo, como mostrado no código a seguir:</p>
 ```python
@@ -83,7 +83,7 @@ Saída:</p>
 
 Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa trocaregioes.cpp. Seu programa deverá trocar os quadrantes em diagonal na imagem. Explore o uso da classe Mat e seus construtores para criar as regiões que serão trocadas.</p>
 
-# Solução
+## Solução
 
 Diferente do regions, esse agora não precisamos de interação com o usuário, é simplesmente manipulação da imagem. E para fazer isso feita a quebra da imagem para pegar pedaços e salva-los em uma imagem final com método copy para fazer a modificação na imagem atual, assim conseguindo modificar as áreas da imagem, como mostrado no código a seguir:</p>
 ```python
@@ -144,7 +144,7 @@ Saída:</p>
 
 Utilizando o programa filestorage.cpp como base, crie um programa que gere uma imagem de dimensões 256x256 pixels contendo uma senóide de 4 períodos com amplitude de 127 desenhada na horizontal, como aquela apresentada na Figura 6 do material. Grave a imagem no formato PNG e no formato YML. Compare os arquivos gerados, extraindo uma linha de cada imagem gravada e comparando a diferença entre elas. Trace um gráfico da diferença calculada ao longo da linha correspondente extraída nas imagens. O que você observa?</p>
 
-# Solução
+## Solução
 
 Para resolver esse problema foram feitas algumas modificações no código original, como resultado disso e da diminuição do número de períodos usados, agora 4, vemos uma redução na amostragem e traços mais grossos na representação da senóide, fato esse também comprovado no arquivo YML, como mostrado no código a seguir:</p>
 ```python
@@ -190,7 +190,7 @@ Saídas:</p>
 
 Usando o programa esteg-encode.cpp como referência para esteganografia, escreva um programa que recupere a imagem codificada de uma imagem resultante de esteganografia. Lembre-se que os bits menos significativos dos pixels da imagem fornecida deverão compor os bits mais significativos dos pixels da imagem recuperada. O programa deve receber como parâmetros de linha de comando o nome da imagem resultante da esteganografia.</p>
 
-# Solução
+## Solução
 
 Para resolver esse problema for montada a estrutura para receber a imagem portadora, em seguida é criada uma matriz de zeros para a imagem que vamos recuperar e após a fazemos uma estrutura de for aninhado para percorrer a imagem portadora e obter a imagem recuperada a cada interação, como mostrado no código a seguir:</p>
 ```python
@@ -245,7 +245,7 @@ Saída:</p>
 
 Observando-se o programa labeling.cpp como exemplo, é possível verificar que caso existam mais de 255 objetos na cena, o processo de rotulação poderá ficar comprometido. Identifique a situação em que isso ocorre e proponha uma solução para este problema.</p>
 
-# Solução
+## Solução
 
 Para resolver o problema de casos que a imagem tenha mais que 255 objetos a serem rotulados, podemos usar uma estrategia de fazer o rotulo ser em pontu flutuante, ou rotula usando a operação mod de 255.</p>
 
@@ -253,7 +253,7 @@ Para resolver o problema de casos que a imagem tenha mais que 255 objetos a sere
 
 Aprimore o algoritmo de contagem apresentado para identificar regiões com ou sem buracos internos que existam na cena. Assuma que objetos com mais de um buraco podem existir. Inclua suporte no seu algoritmo para não contar bolhas que tocam as bordas da imagem. Não se pode presumir, a priori, que elas tenham buracos ou não.</p>
 
-# Solução
+## Solução
 
 Para retirar as bolhas e buracos que estão nas bordas eu fiz o processo de excluir tanto a primeira e última linha, como também primeira e última coluna e assim usar a semente no floodFill. Já para conta os buracos, usei uma estrategia de pinta o fundo da imagem de branco usando o floodFill assim, a parte de dentro dos buracos ainda ficaria com a cor do fundo original e eu poderia contar agora quantos buracos tem. Sabendo a quantidade de buracos é só aplicar o floodFill na imagem, ver quantos objetos ele encontrou e diminuir do número de buracos, assim nos temos a quantidade de bolhas e buracos, como veremos a seguir:</p>
 ```python
@@ -350,7 +350,7 @@ Valores:</p>
 
 Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa equalize.cpp. Este deverá, para cada imagem capturada, realizar a equalização do histogram antes de exibir a imagem. Teste sua implementação apontando a câmera para ambientes com iluminações variadas e observando o efeito gerado. Assuma que as imagens processadas serão em tons de cinza.</p>
 
-# Solução
+## Solução
 
 Para simular uma entrada em tons de cinza foi usada função cvtColor. Para fazer a equalização do histograma utiizei a função equalizeHist, logo depois fiz propriamente dito o histrograma da imagem original e da equalizada, assim tendo uma comparação entre as duas, como veremos a seguir:</p>
 ```python
@@ -398,7 +398,7 @@ Saída em GIF:</p>
 
 Utilizando o programa exemplos/histogram.cpp como referência, implemente um programa motiondetector.cpp. Este deverá continuamente calcular o histograma da imagem (apenas uma componente de cor é suficiente) e compará-lo com o último histograma calculado. Quando a diferença entre estes ultrapassar um limiar pré-estabelecido, ative um alarme. Utilize uma função de comparação que julgar conveniente.</p>
 
-# Solução
+## Solução
 
 Para solucionar esse exercício tive que criar um histograma que ficasse sempre salvando o último histograma do último frame e comparando com o histograma mais recente. Para fazer a comparação dos histogramas utilizei a função compareHist que me devolve a correlação entre os histogramas, assim consigo criar um if e verificar se esse correlação é alta ou baixa e criar um alerta "Movimento detectado - Ordem:", onde é apresentado no terminal um valor a mais a cada vez que for detectado movimento, como veremos a seguir:</p>
 ```python
@@ -451,7 +451,7 @@ Saída em GIF:</p>
 
 Utilizando o programa exemplos/filtroespacial.cpp como referência, implemente um programa laplgauss.cpp. O programa deverá acrescentar mais uma funcionalidade ao exemplo fornecido, permitindo que seja calculado o laplaciano do gaussiano das imagens capturadas. Compare o resultado desse filtro com a simples aplicação do filtro laplaciano.</p>
 
-# Solução
+## Solução
 
 Para solucionar esse exercício foi mais simples simples, foi somente adicionar a mascara do laplaciano do gaussiano junto as mascaras dos outros filtro e colocar a opção de escolher digitando a tecla p. Analisando o filtro laplaciano com o laplaciano do gaussiano percebe-se uma acentuação dos contornos, deixando a listra mais espessa e também mais contornos visíveis, como veremos a seguir:</p>
 ```python
@@ -554,7 +554,7 @@ Utilizando o programa exemplos/addweighted.cpp como referência, implemente um p
 
 -Um ajuste para regular a posição vertical do centro da região que entrará em foco. Finalizado o programa, a imagem produzida deverá ser salva em arquivo.</p>
 
-# Solução
+## Solução
 
 Para a resolução primeiramente foi definida a classe TiltShift, que contém variáveis irão armazenar configurações e parâmetros. Utilizando o método construtor, definimos os parâmetros iniciais para a altura l1, o centro l2 e o decaimento d do efeito tilt-shift, em seguida criamos as barras de controle que permitirão alterar os parâmetros e calculamos o alpha entre 0 e 1, baseado nos parâmetros fornecidos. Quando um parâmetro é alterado o método change altera os pesos pela imagem desfocada e utiliza um filtro de média para sua geração e realiza uma normalização da mesma, por fim é apresentada a imagem desfocada de acordo com os parâmetros e posterioemente salva, como veremos a seguir:</p>
 
@@ -694,7 +694,7 @@ Usando agora o filestorage.cpp, mostrado na Listagem 4 como referência, adapte 
 
 Compare o novo espectro de magnitude gerado com o valor teórico da transformada de Fourier da senóide. O que mudou para que o espectro de magnitude gerado agora esteja mais próximo do valor teórico? Porque isso aconteceu?</p>
 
-# Solução
+## Solução
 
 O resultado do espectro de magnitude gerado pelo código representa a magnitude da transformada de Fourier da imagem, mas essa não é idêntica ao valor teórico da transformada de Fourier de uma senoide pura, visto que, para o funcionamento do código foram feitas alterações no valor do log e consequentemente ocorrer uma modificação na distribuição de valores do espectro. Além disso, a diferença é esperada devido às características específicas da imagem processada e às transformações aplicadas durante o cálculo e visualização do espectro, como veremos a seguir:</p>
 
@@ -826,7 +826,7 @@ Utilizando os programas exemplos/canny.cpp e exemplos/pontilhismo.cpp como refer
 
 -Descreva no seu relatório detalhes do procedimento usado para criar sua técnica pontilhista.</p>
 
-# Solução
+## Solução
 
 Para a resolução deste exercício eu adaptei o código do pontilhismo aplicando o algoritmo de Canny na imagem em questão, após isso é feito um for aninhado onde a posição e cor original são preservados, posteriormente desenhamos os círculos pequenos com os pontos obtidos das bordas de Canny e com isso obtemos a imagem final, como veremos a seguir, o código e após os resultados:</p>
 ```python
@@ -915,7 +915,7 @@ Resultado da correção do pontilhismo pelas bordas de Canny:</p>
 
 Utilizando o programa kmeans.cpp como exemplo prepare um programa exemplo onde a execução do código se dê usando o parâmetro nRodadas=1 e inciar os centros de forma aleatória usando o parâmetro KMEANS_RANDOM_CENTERS ao invés de KMEANS_PP_CENTERS. Realize 10 rodadas diferentes do algoritmo e compare as imagens produzidas. Explique porque elas podem diferir tanto.</p>
 
-# Solução
+## Solução
 
 A solução é dada da seguinte forma, a matriz com as amostras samples deve conter em cada linha uma das amostras a ser processada pela função nClusters que informa a quantidade de aglomerados que se deseja obter, no nosso caso 8. A matriz rotulos é um objeto do tipo Mat preenchido com elementos do tipo int, onde cada elemento identifica a classe à qual pertence a amostra na matriz samples. Aqui realizamos o máximo de até 10000 iterações ou tolerância de 0.0001 para finalizar o algoritmo. O algoritmo é repetido por uma quantidade de vezes definida por nRodadas, assim a rodada que produz a menor soma de distâncias dos pontos para seus respectivos centros é escolhida como vencedora. Foi utilizada a inicialização dos centros de forma aleatória com KMEANS_RANDOM_CENTERS, como veremos a seguir:</p>
 ```python
@@ -963,5 +963,5 @@ Saída em GIF com as 10 imagens geradas:</p>
 
 
 ## Referências
--Página da disciplina de PDI [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/)</p>
+-Página da disciplina de PDI [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/)
 -Repositório Professor Agostinho [![Repository](https://img.shields.io/badge/-Repo-191A1B?style=flat-square&logo=github)](https://github.com/agostinhobritojr)
