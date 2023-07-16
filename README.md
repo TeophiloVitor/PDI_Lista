@@ -138,12 +138,13 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Entrada:
-<p align='center'><img src='./1 - regions/ebiel.png'>  
+Entrada:  
+
+<p align='center'><img src='./1 - regions/ebiel.png'></p>   
     
 Saída:  
 
-<p align='center'><img src='./2 - trocaregions/biel_6.png'>
+<p align='center'><img src='./2 - trocaregions/biel_6.png'></p> 
 
 ## 🔭 Exercício 3
 
@@ -189,7 +190,7 @@ cv2.destroyAllWindows()
 ```
 Saídas:  
 
-<p align='center'><img src='./3 - senoide/senoideatt.png'>  
+<p align='center'><img src='./3 - senoide/senoideatt.png'></p>   
     
 [[Link arquivo YML]](https://github.com/TeophiloVitor/PDI_Lista/blob/main/3%20-%20senoide/senoideatt.yml)
 
@@ -245,11 +246,11 @@ if __name__ == "__main__":
 ```
 Entrada:  
 
-<p align='center'><img src='./4 - esteganografia/esteno.png'>  
+<p align='center'><img src='./4 - esteganografia/esteno.png'></p>   
     
 Saída:  
 
-<p align='center'><img src='./4 - esteganografia/imagem_final.png'>
+<p align='center'><img src='./4 - esteganografia/imagem_final.png'></p> 
 
 ## 🔭 Exercício 5.1
 
@@ -344,29 +345,29 @@ if __name__ == "__main__":
 ```
 Entrada:  
 
-<p align='center'><img src='./5 - labelling/bolhas.png'>  
+<p align='center'><img src='./5 - labelling/bolhas.png'></p>   
     
 Saídas:  
 
 Imagem sem borda:  
 
-<p align='center'><img src='./5 - labelling/image_semborda.png'>  
+<p align='center'><img src='./5 - labelling/image_semborda.png'></p>   
     
 Imagem realce:  
 
-<p align='center'><img src='./5 - labelling/image_realce.png'>  
+<p align='center'><img src='./5 - labelling/image_realce.png'></p>   
     
 Imagem preenchida:  
 
-<p align='center'><img src='./5 - labelling/labeling.png'>  
+<p align='center'><img src='./5 - labelling/labeling.png'></p>   
     
 Comparativo final:  
 
-<p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'>  
+<p align='center'><img src='./5 - labelling/resultado_fim_5.2.png'></p>   
     
 Valores:  
 
-<p align='center'><img src='./5 - labelling/resultado_fimparci_5.2.png'>
+<p align='center'><img src='./5 - labelling/resultado_fimparci_5.2.png'></p> 
 
 ## 🔭 Exercício 6.1
 
@@ -415,7 +416,7 @@ if __name__ == "__main__":
 ```
 Saída em GIF:  
 
-<p align='center'><img src='./6 - equalize/exemplo6_1.gif'>  
+<p align='center'><img src='./6 - equalize/exemplo6_1.gif'></p>   
 
 ## 🔭 Exercício 6.2
 
@@ -469,7 +470,7 @@ if __name__ == "__main__":
 ```
 Saída em GIF:  
 
-<p align='center'><img src='./6 - equalize/exemplo6_2.gif'>
+<p align='center'><img src='./6 - equalize/exemplo6_2.gif'></p> 
 
 ## 🔭 Exercício 7
 
@@ -567,7 +568,7 @@ if __name__ == "__main__":
 ```
 Saída em GIF:  
 
-<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'>
+<p align='center'><img src='./7 - laplgauss/exemplo_7.gif'></p> 
 
 ## 🔭 Exercício 8
 
@@ -702,15 +703,15 @@ if __name__ == '__main__':
 ```
 Entrada:  
 
-<p align='center'><img src='./8 - tiltshift/aquatico.jpg'>  
+<p align='center'><img src='./8 - tiltshift/aquatico.jpg'></p>   
     
 Saída em GIF:  
 
-<p align='center'><img src='./8 - tiltshift/exemplo_8.gif'>  
+<p align='center'><img src='./8 - tiltshift/exemplo_8.gif'></p>   
     
 Exemplo de imagem salva:  
 
-<p align='center'><img src='./8 - tiltshift/tiltShift_aquatico.jpg'>
+<p align='center'><img src='./8 - tiltshift/tiltShift_aquatico.jpg'></p> 
 
 ## 🔔 PARTE II
 
@@ -838,11 +839,11 @@ if __name__ == "__main__":
 ```
 Saída código original:  
 
-<p align='center'><img src='./9 - fourier/result9_1.png'>  
+<p align='center'><img src='./9 - fourier/result9_1.png'></p>   
     
 Saída código ponto flutuante:  
 
-<p align='center'><img src='./9 - fourier/result9_2.png'>
+<p align='center'><img src='./9 - fourier/result9_2.png'></p> 
 
 ## 🔔 PARTE III
 
@@ -937,21 +938,21 @@ cv2.destroyAllWindows()
 ```
 Entrada:  
 
-<p align='center'><img src='./11 - pontcanny/exer11.jpg'>  
+<p align='center'><img src='./11 - pontcanny/exer11.jpg'></p>   
     
 Saídas:  
 
 Aplicação de Canny:  
 
-<p align='center'><img src='./11 - pontcanny/borda_canny.png'>  
+<p align='center'><img src='./11 - pontcanny/borda_canny.png'></p>   
     
 Aplicação do Pontilhismo:  
 
-<p align='center'><img src='./11 - pontcanny/pontilhada.png'>  
+<p align='center'><img src='./11 - pontcanny/pontilhada.png'></p>   
     
 Resultado da correção do pontilhismo pelas bordas de Canny:  
 
-<p align='center'><img src='./11 - pontcanny/cannypoints.png'>
+<p align='center'><img src='./11 - pontcanny/cannypoints.png'></p> 
 
 ## 🔭 Exercício 12
 
@@ -1000,11 +1001,11 @@ cv2.destroyAllWindows()
 ```
 Entrada:  
 
-<p align='center'><img src='./12 - kmeans/exe12.jpg'>  
+<p align='center'><img src='./12 - kmeans/exe12.jpg'></p>   
     
 Saída em GIF com as 10 imagens geradas:  
 
-<p align='center'><img src='./12 - kmeans/kmeans.gif'>
+<p align='center'><img src='./12 - kmeans/kmeans.gif'></p> 
 
 ## Referências
 -Página da disciplina de PDI [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/)  
