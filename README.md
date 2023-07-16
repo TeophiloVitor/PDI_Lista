@@ -74,10 +74,12 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Entrada:</p>
-<p align='center'><img src='./1 - regions/ebiel.png'></p>
-Saída:</p>
-<p align='center'><img src='./1 - regions/resultex1.png'></p>
+Entrada:
+<p align='center'><img src='./1 - regions/ebiel.png'>  
+    
+Saída:  
+
+<p align='center'><img src='./1 - regions/resultex1.png'>
 
 ## 🔭 Exercício 2.2
 
