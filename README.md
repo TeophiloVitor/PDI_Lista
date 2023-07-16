@@ -2,7 +2,8 @@
 
 ## Discente
 Teophilo Vitor de Carvalho Clemente | 20220080516  
-Graduação em Engenharia da Computação - UFRN
+Graduação em Engenharia da Computação - UFRN  
+<teophilo.vitor.709@ufrn.edu.br>  
 
 ## Objetivo 
 Neste repositório serão apresentados os códigos, resultados e explicações acerca dos exercícios desenvolvidos ao longo da disciplina de Processamento Digital de Imagens, os respectivos enunciados e material da disciplina podem ser encontrados na página do professor Dr. Agostinho [[Link]](https://agostinhobritojr.github.io/tutorial/pdi/). Os códigos foram desenvolvidos em Python juntamente com a biblioteca OpenCV, para isso converti os códigos disponibilizados pelo professor para Python e no discorrer desde README eles serão apresentados e explicados.
@@ -13,16 +14,25 @@ Para rodar os códigos, é preciso ter Python instalado na sua máquina e a bibl
 
 ## Sumário
 
-[[CAPÍTULO 2]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-21)</p> 
-[[CAPÍTULO 3]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-3)</p> 
-[[CAPÍTULO 4]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-4)</p> 
-[[CAPÍTULO 5]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-51)</p> 
-[[CAPÍTULO 6]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-61)</p> 
-[[CAPÍTULO 7]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-7)</p> 
-[[CAPÍTULO 8]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-8)</p> 
-[[CAPÍTULO 9]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-9)</p> 
-[[CAPÍTULO 11]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-11)</p> 
-[[CAPÍTULO 12]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-12)</p> 
+[[CAPÍTULO 2]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-21)  
+
+[[CAPÍTULO 3]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-3)  
+
+[[CAPÍTULO 4]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-4)  
+
+[[CAPÍTULO 5]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-51)  
+
+[[CAPÍTULO 6]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-61)  
+
+[[CAPÍTULO 7]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-7)  
+
+[[CAPÍTULO 8]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-8)  
+
+[[CAPÍTULO 9]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-9)  
+
+[[CAPÍTULO 11]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-11)  
+
+[[CAPÍTULO 12]](https://github.com/TeophiloVitor/PDI_Lista#-exerc%C3%ADcio-12)  
 
 ## 🔔 PARTE I
 
