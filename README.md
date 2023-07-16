@@ -28,11 +28,11 @@ Para rodar os códigos, é preciso ter Python instalado na sua máquina e a bibl
 
 ## 🔭 Exercício 2.1
 
-Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa regions.cpp. Esse programa deverá solicitar ao usuário as coordenadas de dois pontos P1 e P2 localizados dentro dos limites do tamanho da imagem e exibir que lhe for fornecida. Entretanto, a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 será exibida com o negativo da imagem na região correspondente.</p>
+Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa regions.cpp. Esse programa deverá solicitar ao usuário as coordenadas de dois pontos P1 e P2 localizados dentro dos limites do tamanho da imagem e exibir que lhe for fornecida. Entretanto, a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 será exibida com o negativo da imagem na região correspondente.
 
 ## Solução
 
-Para resolver foram implementas entradas para o usuário escolher qual região ele queria deixar em negativo. Para deixar deixar a região em negativo foi feito um for para percorrer área escolhida e fazer a operação que faz com que o pixel da imagem se torne negativo, como mostrado no código a seguir:</p>
+Para resolver foram implementas entradas para o usuário escolher qual região ele queria deixar em negativo. Para deixar deixar a região em negativo foi feito um for para percorrer área escolhida e fazer a operação que faz com que o pixel da imagem se torne negativo, como mostrado no código a seguir:
 ```python
 import cv2
 import requests
@@ -81,7 +81,7 @@ Saída:</p>
 
 ## 🔭 Exercício 2.2
 
-Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa trocaregioes.cpp. Seu programa deverá trocar os quadrantes em diagonal na imagem. Explore o uso da classe Mat e seus construtores para criar as regiões que serão trocadas.</p>
+Utilizando o programa exemplos/pixels.cpp como referência, implemente um programa trocaregioes.cpp. Seu programa deverá trocar os quadrantes em diagonal na imagem. Explore o uso da classe Mat e seus construtores para criar as regiões que serão trocadas.
 
 ## Solução
 
@@ -135,10 +135,10 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Entrada:</p>
-<p align='center'><img src='./1 - regions/ebiel.png'></p>
-Saída:</p>
-<p align='center'><img src='./2 - trocaregions/biel_6.png'></p>
+Entrada:
+<p align='center'><img src='./1 - regions/ebiel.png'>
+Saída:
+<p align='center'><img src='./2 - trocaregions/biel_6.png'>
 
 ## 🔭 Exercício 3
 
